@@ -1,14 +1,14 @@
-function out = gyz_1row(ys,zs,times,cond)
+function out = gyz_1row(I,O,cond,t,z0)
 %% Parameters
-dtdns = 1e-5;
-z0 = linspace(-0.035,0.035,21);
-z0 = z0(1:end-1);
+%dtdns = 1e-5;
+%z0 = linspace(-0.035,0.035,21);
+%z0 = z0(1:end-1);
 NS = length(z0);
 
 w1 = 100;
 
 %% Compute Gyz
-res1 = ordinary_TF(ys,zs,z0,times,cond);
+res1 = ordinary_TF(I,O,z0,t,cond);
 
 %%
 Syy = res1.Syy;
@@ -32,9 +32,9 @@ gyz = ifft(Gyz,[],1);
 gyz = ifft(gyz,[],2);
 
 
-z_s = conv_jose(ys,real(gyz),NS,length(times));
+z_s = conv_jose(I,real(gyz),NS,length(t));
 
-error = mse(z_s-zs)/mse(zs);
+error = mse(z_s-O)/mse(O);
 
 out.error = error;
 out.est = z_s;
