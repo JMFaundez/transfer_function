@@ -46,6 +46,7 @@ ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
 title('Diego Linear')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
+ylabel('time','FontSize',18,'Interpreter','Latex')
 
 %cfLD = squeeze(cf(:,:,600));
 %val=1e-3;
