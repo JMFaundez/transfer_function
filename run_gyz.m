@@ -41,6 +41,35 @@ out = gyz_1row(I,O,cond,time,z);
 
 
 [Z,T] = meshgrid(z,time);
+val=0.5e-3;
+cmap=parula;
+figure('Position',[500 500 1000 400])
+ax1 =subplot(211);
+pcolor(T,Z,O)
+shading interp
+clim([-val,val])
+colormap(ax1,cmap)
+colorbar()
+%axis equal
+ylim([min(Z(:)),max(Z(:))])
+%xlim([0.02,0.5])
+title('Input Linear')
+ylabel('$z$','FontSize',18,'Interpreter','Latex')
+xlabel('time','FontSize',18,'Interpreter','Latex')
+
+ax2 =subplot(212);
+pcolor(T,Z,out.z_s)
+shading interp
+clim([-val,val])
+colormap(ax1,cmap)
+colorbar()
+%axis equal
+ylim([min(Z(:)),max(Z(:))])
+%xlim([0.02,0.5])
+title('Output Linear')
+ylabel('$z$','FontSize',18,'Interpreter','Latex')
+xlabel('time','FontSize',18,'Interpreter','Latex')
+
 %val=0.5e-3;
 %cmap=parula;
 %figure('Position',[500 500 1000 400])
