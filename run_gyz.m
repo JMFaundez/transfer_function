@@ -24,18 +24,21 @@ x0=0.05;
 xf=0.1;
 ix0 = find(Xd(:,1)>=x0,1,"first");
 ixf = find(Xd(:,1)>=xf,1,"first");
+it0 = find(time_diego>=0.6,1,"first");
+time = time_diego(ito:end);
+
 
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
-I = squeeze(cf(ix0,1:end-1,:))';
-O = squeeze(cf(ixf,1:end-1,:))';
-
-[Z,T] = meshgrid(gridDiego.Z(1:end-1),time_diego);
+I = squeeze(cf(ix0,1:end-1,it0:end))';
+O = squeeze(cf(ixf,1:end-1,it0:end))';
 
 z = gridDiego.Z(1:end-1);
-out = gyz_1row(I,O,cond,time_diego,z);
+
+out = gyz_1row(I,O,cond,time,z);
 
 
+[Z,T] = meshgrid(z,time);
 %val=0.5e-3;
 %cmap=parula;
 %figure('Position',[500 500 1000 400])
