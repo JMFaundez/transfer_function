@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=0.25;
+x0=0.35;
 xf=0.45;
 t0 = 0.6;
 ix0 = find(Xd(:,1)>=x0,1,"first");
