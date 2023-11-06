@@ -97,8 +97,11 @@ ylabel('$\beta$','FontSize',18,'Interpreter','Latex')
 title('Coherence','FontSize',18,'Interpreter','Latex')
 colorbar()
 
+[~,ntg] = size(FT);
+[Tg,Zg] = meshgrid(time(1:ntg),z);
+
 figure()
-surf(T,Z,fftshift(out.gyz'))
+surf(Tg,Zg,fftshift(out.gyz'))
 shading interp
 view(2)
 %xlim([0,400])
