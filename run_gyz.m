@@ -41,7 +41,7 @@ shading interp
 clim([-val,val])
 colormap(ax1,cmap)
 colorbar()
-axis equal
+%axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
 title('Diego Linear')
