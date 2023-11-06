@@ -27,16 +27,16 @@ ixf = find(Xd(:,1)>=xf,1,"first");
 
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
-I = squeeze(cf(ix0,:,:));
-O = squeeze(cf(ixf,:,:));
+I = squeeze(cf(ix0,:,:))';
+O = squeeze(cf(ixf,:,:))';
 
 [Z,T] = meshgrid(gridDiego.Z,time_diego);
 
 val=0.5e-3;
-cmap=gray;
+cmap=parula;
 figure('Position',[500 500 1000 400])
 ax1 =subplot(211);
-pcolor(T,Z,I')
+pcolor(T,Z,I)
 shading interp
 clim([-val,val])
 colormap(ax1,cmap)
@@ -48,18 +48,29 @@ title('Diego Linear')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 ylabel('time','FontSize',18,'Interpreter','Latex')
 
-%cfLD = squeeze(cf(:,:,600));
-%val=1e-3;
-%cmap=gray;
-%figure('Position',[500 500 1000 400])
-%ax1 =subplot(211);
-%pcolor(Xd,Zd,cfLD)
-%shading interp
-%clim([-val,val])
-%colormap(ax1,cmap)
-%colorbar()
+ax2 =subplot(212);
+pcolor(T,Z,O)
+shading interp
+clim([-val,val])
+colormap(ax1,cmap)
+colorbar()
 %axis equal
-%ylim([min(Z(:)),max(Z(:))])
+ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
-%title('Diego Linear')
-%ylabel('$z$','FontSize',18,'Interpreter','Latex')
+title('Diego Linear')
+ylabel('$z$','FontSize',18,'Interpreter','Latex')
+ylabel('time','FontSize',18,'Interpreter','Latex')
+
+cfLD = squeeze(cf(:,:,600));
+figure('Position',[500 500 1000 400])
+ax1 =subplot(211);
+pcolor(Xd,Zd,cfLD)
+shading interp
+clim([-val,val])
+colormap(ax1,cmap)
+colorbar()
+axis equal
+ylim([min(Z(:)),max(Z(:))])
+xlim([0.02,0.5])
+title('Diego Linear')
+ylabel('$z$','FontSize',18,'Interpreter','Latex')
