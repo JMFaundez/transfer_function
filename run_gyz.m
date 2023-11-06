@@ -98,7 +98,7 @@ title('Coherence','FontSize',18,'Interpreter','Latex')
 colorbar()
 
 [~,ntg] = size(FT);
-[Tg,Zg] = meshgrid(time(1:ntg),z);
+[Tg,Zg] = meshgrid(time(1:ntg)-time(1),z);
 
 figure()
 surf(Tg,Zg,real(fftshift(out.gyz))')
