@@ -28,7 +28,7 @@ ixf = find(Xd(:,1)>=xf,1,"first");
 it0 = find(time_diego>=t0,1,"first");
 time = time_diego(it0:end);
 nnt = floor(length(time)/cond.nd) * cond.nd;
-dift = length(time) - ntt;
+dift = length(time) - nnt;
 it0 = it0 + dift;
 time = time(dift:end);
 
