@@ -7,7 +7,7 @@ cond.tap = 1; % Use hanning window or not
 
 
 
-gridDiego = load("../cf_beta/Linear_Diego/grid");
+gridDiego = load("../CF/Linear_Diego/grid");
 
 
 [Zd,Xd] = meshgrid(gridDiego.Z,gridDiego.X(:,1)); 
