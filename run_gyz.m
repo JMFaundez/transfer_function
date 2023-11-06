@@ -25,7 +25,7 @@ xf=0.1;
 ix0 = find(Xd(:,1)>=x0,1,"first");
 ixf = find(Xd(:,1)>=xf,1,"first");
 it0 = find(time_diego>=0.6,1,"first");
-time = time_diego(ito:end);
+time = time_diego(it0:end);
 
 
 cf = (LD.Q(Np/3+1:2*Np/3,:));
