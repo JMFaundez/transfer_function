@@ -44,9 +44,9 @@ colorbar()
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
-title('Diego Linear')
+title('Input Linear')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
-ylabel('time','FontSize',18,'Interpreter','Latex')
+xlabel('time','FontSize',18,'Interpreter','Latex')
 
 ax2 =subplot(212);
 pcolor(T,Z,O)
@@ -57,9 +57,9 @@ colorbar()
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
-title('Diego Linear')
+title('Output Linear')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
-ylabel('time','FontSize',18,'Interpreter','Latex')
+xlabel('time','FontSize',18,'Interpreter','Latex')
 
 cfLD = squeeze(cf(:,:,600));
 figure('Position',[500 500 1000 400])
@@ -72,5 +72,4 @@ colorbar()
 axis equal
 ylim([min(Z(:)),max(Z(:))])
 xlim([0.02,0.5])
-title('Diego Linear')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
