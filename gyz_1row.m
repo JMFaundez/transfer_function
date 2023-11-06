@@ -5,7 +5,7 @@ function out = gyz_1row(I,O,cond,t,z0)
 %z0 = z0(1:end-1);
 NS = length(z0);
 
-w1 = 100;
+w1 = 500;
 
 %% Compute Gyz
 res1 = ordinary_TF(I,O,z0,t,cond);
@@ -16,7 +16,7 @@ Syy = res1.Syy;
 Syz = res1.Syz;
 
 % Gyz =  | Gyz_1   Gyz_2 |
-Sx = step_2(res1.ft*2*pi,w1,200,1e12,1e4);
+Sx = step_2(res1.ft*2*pi,w1,600,1e12,1e4);
 Sx = ifftshift(Sx);
 R2 = min(Sx);
 SxM = repmat(Sx',[1 NS]);
