@@ -78,6 +78,8 @@ figure()
 surf(FT,FZ,fftshift(out.coherence))
 xlim([0,100])
 ylim([-1000,1000])
+xlabel('$\omega$','FontSize',18,'Interpreter','Latex')
+ylabel('$\beta$','FontSize',18,'Interpreter','Latex')
 
 
 
