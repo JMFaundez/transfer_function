@@ -28,8 +28,9 @@ ixf = find(Xd(:,1)>=xf,1,"first");
 it0 = find(time_diego>=t0,1,"first");
 time = time_diego(it0:end);
 nnt = floor(length(time)/cond.nd) * cond.nd;
-it0 = it0 + length(time)-nnt;
-
+dift = length(time) - ntt;
+it0 = it0 + dift;
+time = time(dift:end);
 
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
