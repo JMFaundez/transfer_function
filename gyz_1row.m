@@ -19,7 +19,7 @@ Syz = res1.Syz;
 Sx = step_2(res1.ft*2*pi,w1,200,1e12,1e4);
 Sx = ifftshift(Sx);
 R2 = min(Sx);
-SxM = repmat(Sx',[1 20]);
+SxM = repmat(Sx',[1 NS]);
 SxM = SxM/R2;
 SxM_inv = 1./SxM;
 
