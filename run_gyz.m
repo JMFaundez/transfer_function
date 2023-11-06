@@ -55,7 +55,7 @@ colorbar()
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
-title('Input Linear')
+title('Output')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
@@ -68,7 +68,7 @@ colorbar()
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
-title('Output Linear')
+title('Prediction')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
