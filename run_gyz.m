@@ -97,6 +97,16 @@ ylabel('$\beta$','FontSize',18,'Interpreter','Latex')
 title('Coherence','FontSize',18,'Interpreter','Latex')
 colorbar()
 
+figure()
+surf(T,Z,fftshift(out.gyz'))
+shading interp
+view(2)
+%xlim([0,400])
+%ylim([-1000,1000])
+xlabel('time','FontSize',18,'Interpreter','Latex')
+ylabel('span','FontSize',18,'Interpreter','Latex')
+title('TF','FontSize',18,'Interpreter','Latex')
+colorbar()
 
 
 
