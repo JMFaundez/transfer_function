@@ -37,7 +37,9 @@ O = squeeze(cf(ixf,1:end-1,it0:end))';
 
 z = gridDiego.Z(1:end-1);
 
+tic
 out = gyz_1row(I,O,cond,time,z);
+toc
 
 
 [Z,T] = meshgrid(z,time);
@@ -58,7 +60,7 @@ ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
 ax2 =subplot(212);
-pcolor(T,Z,out.z_s)
+pcolor(T,Z,out.est)
 shading interp
 clim([-val,val])
 colormap(ax1,cmap)
