@@ -26,8 +26,8 @@ SxM_inv = 1./SxM;
 %Gyz_1 = (Sy1z./Sy1y1 + Sy2z./Sy1y2).*SxM_inv;
 %Gyz_2 = (Sy1z./Sy2y1 + Sy2z./Sy2y2).*SxM_inv;
 
-%Gyz = Syz./Syy.*SxM_inv;
-Gyz = Syz./Syy;
+Gyz = Syz./Syy.*SxM_inv;
+%Gyz = Syz./Syy;
 
 gyz = ifft(Gyz,[],1);
 gyz = ifft(gyz,[],2);
