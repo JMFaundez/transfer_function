@@ -72,6 +72,16 @@ title('Prediction')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
+
+[FT,FZ] = meshgrid(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi);
+figure()
+surf(FT,FZ,fftshift(out.coherence))
+xlim([0,100])
+ylim([-1000,1000])
+
+
+
+
 %val=0.5e-3;
 %cmap=parula;
 %figure('Position',[500 500 1000 400])

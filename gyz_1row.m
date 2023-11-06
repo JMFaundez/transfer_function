@@ -41,5 +41,8 @@ out.error = error;
 out.est = z_s;
 out.gyz = gyz;
 out.Gyz = Gyz;
+out.coherence = res1.coh;
+out.ft = res1.ft;
+out.fz = res1.fz;
 
 end
