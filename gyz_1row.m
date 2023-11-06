@@ -44,8 +44,6 @@ gyz = ifft(gyz,[],2);
 z_s = conv_jose(ys,real(gyz),NS,length(times));
 
 
-
-
 error = mse(z_s-zs)/mse(zs);
 
 out.error = error;
