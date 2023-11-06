@@ -75,7 +75,7 @@ xlabel('time','FontSize',18,'Interpreter','Latex')
 
 [FT,FZ] = meshgrid(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi);
 figure()
-surf(FT,FZ,fftshift(out.coherence))
+surf(FT,FZ,fftshift(out.coherence'))
 xlim([0,100])
 ylim([-1000,1000])
 xlabel('$\omega$','FontSize',18,'Interpreter','Latex')
