@@ -1,8 +1,8 @@
 clear all
 
 % Welch parameters
-cond.q = 0.50; %overlap
-cond.nd = 12;  % Number of bins 
+cond.q = 0.75; %overlap
+cond.nd = 10;  % Number of bins 
 cond.tap = 1; % Use hanning window or not
 
 
@@ -72,16 +72,29 @@ title('Prediction')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
+iz = 50;
+figure()
+hold on 
+plot(time,O(:,iz),'DisplayName','Sim')
+plot(time,out.est(:,iz),'DisplayName','Prediction')
+ylabel('output','FontSize',18,'Interpreter','Latex')
+xlabel('time','FontSize',18,'Interpreter','Latex')
+legend('Location','best')
+box on 
+
+
 
 [FT,FZ] = meshgrid(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi);
 figure()
 surf(FT,FZ,fftshift(out.coherence'))
 shading interp
 view(2)
-xlim([0,100])
+clim([0,1])
+xlim([0,400])
 ylim([-1000,1000])
 xlabel('$\omega$','FontSize',18,'Interpreter','Latex')
 ylabel('$\beta$','FontSize',18,'Interpreter','Latex')
+title('Coherence','FontSize',18,'Interpreter','Latex')
 colorbar()
 
 
