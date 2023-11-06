@@ -30,7 +30,7 @@ time = time_diego(it0:end);
 nnt = floor(length(time)/cond.nd) * cond.nd;
 dift = length(time) - nnt;
 it0 = it0 + dift;
-time = time(dift:end);
+time = time(dift+1:end);
 
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
