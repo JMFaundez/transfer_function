@@ -28,8 +28,9 @@ ixf = find(Xd(:,1)>=xf,1,"first");
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
 
-cfLD = squeeze(cf(:,:,100));
+cfLD = squeeze(cf(:,:,600));
 
+val=1e-3;
 figure('Position',[500 500 1000 400])
 ax1 =subplot(211);
 pcolor(Xd,Zd,cfLD)
