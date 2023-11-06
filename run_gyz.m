@@ -28,3 +28,17 @@ ixf = find(Xd(:,1)>=xf,1,"first");
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
 
+cfLD = squeeze(cf(:,:,100));
+
+figure('Position',[500 500 1000 400])
+ax1 =subplot(211);
+pcolor(Xd,Zd,cfLD)
+shading interp
+clim([-val,val])
+colormap(ax1,cmap)
+colorbar()
+axis equal
+ylim([min(Z(:)),max(Z(:))])
+xlim([0.02,0.5])
+title('Diego Linear')
+ylabel('$z$','FontSize',18,'Interpreter','Latex')
