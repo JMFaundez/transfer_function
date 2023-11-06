@@ -36,7 +36,7 @@ val=0.5e-3;
 cmap=gray;
 figure('Position',[500 500 1000 400])
 ax1 =subplot(211);
-pcolor(T,Z,I)
+pcolor(T,Z,I')
 shading interp
 clim([-val,val])
 colormap(ax1,cmap)
