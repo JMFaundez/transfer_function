@@ -5,16 +5,12 @@ z0 = linspace(-0.035,0.035,21);
 z0 = z0(1:end-1);
 NS = length(z0);
 
-
 w1 = 100;
 
-
 %% Compute Gyz
-
 res1 = ordinary_TF(ys,zs,z0,times,cond);
 
 %%
-
 Syy = res1.Syy;
 
 Syz = res1.Syz;
@@ -27,22 +23,16 @@ SxM = repmat(Sx',[1 20]);
 SxM = SxM/R2;
 SxM_inv = 1./SxM;
 
-
-
 %Gyz_1 = (Sy1z./Sy1y1 + Sy2z./Sy1y2).*SxM_inv;
 %Gyz_2 = (Sy1z./Sy2y1 + Sy2z./Sy2y2).*SxM_inv;
 
 Gyz = Syz./Syy.*SxM_inv;
 
-
 gyz = ifft(Gyz,[],1);
 gyz = ifft(gyz,[],2);
 
 
-
-
 z_s = conv_jose(ys,real(gyz),NS,length(times));
-
 
 error = mse(z_s-zs)/mse(zs);
 
@@ -50,6 +40,5 @@ out.error = error;
 out.est = z_s;
 out.gyz = gyz;
 out.Gyz = Gyz;
-
 
 end
