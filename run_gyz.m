@@ -81,7 +81,7 @@ shading interp
 clim([-val,val])
 colormap(ax1,cmap)
 colorbar()
-yline(Z(iz,1))
+yline(z(iz))
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
@@ -98,7 +98,7 @@ for i=1:length(ix0)
 end
 ylabel('output','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
-legend('Location','best')
+legend('Location','best','Interpreter','latex')
 box on 
 
 
