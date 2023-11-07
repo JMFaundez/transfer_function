@@ -43,7 +43,7 @@ tic
 %out = gyz_1row(I,O,cond,time,z);
 out = gyz_nrows(I,O,cond,time,z);
 toc
-return
+%return
 
 [Z,T] = meshgrid(z,time);
 val=0.5e-3;
