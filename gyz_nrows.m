@@ -72,8 +72,8 @@ for i=1:nin
     end
 end
 
-for i=1:nz
-    for j=1:ntf
+for i=1:ntf
+    for j=1:nz
         Ai = squeeze(A(i,j,:,:));
         bi = squeeze(b(i,j,:));
         Gyz(i,j,:) = Ai\bi;
