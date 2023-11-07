@@ -11,7 +11,7 @@ cond.tap = 1; % Use hanning window or not
 tic
 LD = load("../CF/NonLinear_Diego/wallStresses.mat",'Q','t');
 toc
-gridDiego = load("../CF/NonLinear_Diego/grid");
+gridDiego = load("../CF/Linear_Diego/grid");
 
 
 [Zd,Xd] = meshgrid(gridDiego.Z,gridDiego.X(:,1)); 
