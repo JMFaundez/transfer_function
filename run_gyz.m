@@ -21,7 +21,7 @@ time_diego = LD.t;
 
 
 x0=0.05;
-xf=0.45;
+xf=0.15;
 t0 = 0.6;
 ix0 = find(Xd(:,1)>=x0,1,"first");
 ixf = find(Xd(:,1)>=xf,1,"first");
