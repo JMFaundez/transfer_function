@@ -86,14 +86,24 @@ box on
 
 
 
-[FT,FZ] = meshgrid(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi);
+%[FT,FZ] = meshgrid(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi);
+ft_shift = fftshift(out.ft);
+fz_shift  = fftshift(out.fz);
+dft = ft_shift(2)-ft_shit(1);
+dfz = fz_shift(2)-fz_shit(1);
+xx = (ft_shift - dft/2)*2*pi;
+yy = (fz_shift - dfz/2)*2*pi;
+[FT,FZ] = meshgrid(xx,yy);
+
 figure()
-surf(FT,FZ,fftshift(out.coherence'))
-shading interp
+hold on
+imagesc(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi,fftshift(out.coherence'))
+%shading interp
 view(2)
 clim([0,1])
-xlim([0,400])
-ylim([-1000,1000])
+mesh(FT,FZ,'FaceAlpha',0,'LineWidth',1,'EdgeColor','k')
+xlim([0,floor(400/dft)*dft])
+ylim([0,floor(1000/dfz)*dfz])
 xlabel('$\omega$','FontSize',18,'Interpreter','Latex')
 ylabel('$\beta$','FontSize',18,'Interpreter','Latex')
 title('Coherence','FontSize',18,'Interpreter','Latex')
