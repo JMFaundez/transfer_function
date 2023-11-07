@@ -87,7 +87,7 @@ z_s = zeros(length(t),nz,nin);
 
 for i=1:nin
     gyz_i = real(squeeze(gyz(:,:,i))); 
-    in1 = squeeze(ys(:,:,i));
+    in1 = squeeze(I(:,:,i));
     z_s(:,:,i) = conv_jose(in1,gyz_i,NS,length(t));
 end
 
