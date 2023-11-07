@@ -125,7 +125,7 @@ colorbar()
 [Tg,Zg] = meshgrid(time(1:ntg)-time(1),z);
 
 figure()
-surf(Tg,Zg,real((out.gyz))')
+surf(Tg,Zg,real((out.gyz(:,:,1)))')
 shading interp
 view(2)
 %xlim([0,400])
