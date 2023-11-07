@@ -53,7 +53,7 @@ NT = length(time);
 Xz = fft(xn,[],2);
 Yz = fft(yn,[],2);
 
-Lz = z0(end) - z0(1) + (z(2)-z(1));
+Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 [fz,fzp] = freq_fft(NS,Lz);
 
 [X, ft] = fft_time_z(Xz,time,nd,q,tap);
