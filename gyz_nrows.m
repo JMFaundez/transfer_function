@@ -1,4 +1,4 @@
-function out = gyz_nrows(ys,zs,times,cond,z0)
+function out = gyz_nrows(ys,zs,cond,times,z0)
 %% Parameters
 %dtdns = 1e-5;
 %z0 = linspace(-0.035,0.035,21);
