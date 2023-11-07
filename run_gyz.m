@@ -101,7 +101,7 @@ imagesc(ft_shift*2*pi,fz_shift*2*pi,fftshift(out.coherence'))
 %shading interp
 view(2)
 clim([0,1])
-mesh(FT,FZ,'FaceAlpha',0,'LineWidth',1,'EdgeColor','k')
+mesh(FT,FZ,FZ*0,'FaceAlpha',0,'LineWidth',1,'EdgeColor','k')
 xlim([0,floor(400/dft)*dft])
 ylim([0,floor(1000/dfz)*dfz])
 xlabel('$\omega$','FontSize',18,'Interpreter','Latex')
