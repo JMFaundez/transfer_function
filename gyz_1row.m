@@ -22,6 +22,8 @@ R2 = min(Sx);
 SxM = repmat(Sx',[1 NS]);
 SxM = SxM/R2;
 SxM_inv = 1./SxM;
+figure()
+plot(SxM_inv)
 
 %Gyz_1 = (Sy1z./Sy1y1 + Sy2z./Sy1y2).*SxM_inv;
 %Gyz_2 = (Sy1z./Sy2y1 + Sy2z./Sy2y2).*SxM_inv;
