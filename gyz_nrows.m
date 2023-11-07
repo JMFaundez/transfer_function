@@ -80,8 +80,10 @@ for i=1:ntf
     end
 end
 
+gyz = ifft(Gyz,[],1);
+gyz = ifft(gyz,[],2);
 
-
+out.gyz = gyz;
 
 %%
 
