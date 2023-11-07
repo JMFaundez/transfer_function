@@ -49,10 +49,10 @@ res_in = {};
 res_in_out = {};
 for i=1:nin
     in1 = squeeze(I(:,:,i));
-    res_in_out{i} = ordinary_TF(in1,O,z0,times,cond);
+    res_in_out{i} = ordinary_TF(in1,O,z0,t,cond);
     for j=1:nin
         in2 = squeeze(I(:,:,j));
-        res_in{i,j} = ordinary_TF(in1,in2,z0,times,cond);
+        res_in{i,j} = ordinary_TF(in1,in2,z0,t,cond);
     end
 end
 
