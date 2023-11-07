@@ -9,7 +9,7 @@ cond.tap = 1; % Use hanning window or not
 
 %% Data Diego
 tic
-LD = load("../CF/NonLinear_Diego/wallStresses.mat",'Q','t');
+LD = load("../CF/Linear_Diego/wallStresses.mat",'Q','t');
 toc
 gridDiego = load("../CF/Linear_Diego/grid");
 
