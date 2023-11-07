@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=[0.15];
+x0=[0.05,0.1,0.15];
 xf=0.25;
 
 ix0 = x0*0;
@@ -69,7 +69,7 @@ colormap(ax1,cmap)
 colorbar()
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
-%xlim([0.02,0.5])
+xlim([min(T(:)),max(T(:))])
 title('Output')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
@@ -84,7 +84,7 @@ colorbar()
 yline(z(iz))
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
-%xlim([0.02,0.5])
+xlim([min(T(:)),max(T(:))])
 title('Prediction')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
