@@ -83,7 +83,18 @@ end
 gyz = ifft(Gyz,[],1);
 gyz = ifft(gyz,[],2);
 
-out.gyz = gyz;
+z_s = zeros(size(zs),nin);
+
+for i=1:nin
+    gyz_i = real(squeeze(gyz(:,:,i))); 
+    in1 = squeeze(ys(:,:,i));
+    z_s(:,:,i) = conv_jose(in1,gyz_i,NS,length(t));
+end
+
+out.gyz = real(gyz);
+out.z_s = z_s;
+
+
 
 %%
 
