@@ -89,8 +89,8 @@ box on
 %[FT,FZ] = meshgrid(fftshift(out.ft)*2*pi,fftshift(out.fz)*2*pi);
 ft_shift = fftshift(out.ft);
 fz_shift  = fftshift(out.fz);
-dft = ft_shift(2)-ft_shit(1);
-dfz = fz_shift(2)-fz_shit(1);
+dft = ft_shift(2)-ft_shift(1);
+dfz = fz_shift(2)-fz_shift(1);
 xx = (ft_shift - dft/2)*2*pi;
 yy = (fz_shift - dfz/2)*2*pi;
 [FT,FZ] = meshgrid(xx,yy);
