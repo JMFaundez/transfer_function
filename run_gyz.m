@@ -40,9 +40,10 @@ O = squeeze(cf(ixf,1:end-1,it0:end))';
 z = gridDiego.Z(1:end-1);
 
 tic
-out = gyz_1row(I,O,cond,time,z);
+%out = gyz_1row(I,O,cond,time,z);
+out = gyz_nrows(I,O,cond,time,z);
 toc
-
+return
 
 [Z,T] = meshgrid(z,time);
 val=0.5e-3;

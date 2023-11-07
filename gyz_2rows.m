@@ -1,8 +1,8 @@
-function out = gyz_2rows(ys1,ys2,zs,times,cond)
+function out = gyz_2rows(ys1,ys2,zs,times,cond,z0)
 %% Parameters
-dtdns = 1e-5;
-z0 = linspace(-0.035,0.035,21);
-z0 = z0(1:end-1);
+%dtdns = 1e-5;
+%z0 = linspace(-0.035,0.035,21);
+%z0 = z0(1:end-1);
 NS = length(z0);
 
 
