@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=[0.05, 0.15];
+x0=[0.05];
 xf=0.25;
 
 ix0 = x0*0;
@@ -42,7 +42,7 @@ cf = reshape(cf,Ns,Nz,Nt);
 O = squeeze(cf(ixf,1:end-1,it0:end))';
 
 [n1,n2] = size(O);
-I = zeros(n1.n2,length(ix0));
+I = zeros(n1,n2,length(ix0));
 for i=1:length(ix0)
     Ii = squeeze(cf(ix0(i),1:end-1,it0:end))';
     I(:,:,i) = Ii;
