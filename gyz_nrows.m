@@ -93,6 +93,9 @@ end
 
 out.gyz = real(gyz);
 out.z_s = z_s;
+out.ft = res_in_out{1}.ft;
+out.fz = res_in_out{1}.fz;
+out.coherence = res_in_out{1}.coh;
 
 
 
