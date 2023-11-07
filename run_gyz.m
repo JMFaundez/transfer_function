@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=[0.15];
+x0=[0.05,0.15];
 xf=0.25;
 
 ix0 = x0*0;
@@ -91,6 +91,9 @@ figure()
 hold on 
 plot(time,O(:,iz),'DisplayName','Sim')
 plot(time,out.est(:,iz),'DisplayName','Prediction')
+for i=1:length(ix0)
+    plot(time,out.z_s(:,iz,i),'DisplayName',"$x_{"+num2str(i)+"}$")
+end
 ylabel('output','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 legend('Location','best')
