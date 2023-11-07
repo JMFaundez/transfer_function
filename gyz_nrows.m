@@ -1,10 +1,10 @@
-function out = gyz_nrows(ys,zs,cond,times,z0)
+function out = gyz_nrows(I,O,cond,t,z0)
 %% Parameters
 %dtdns = 1e-5;
 %z0 = linspace(-0.035,0.035,21);
 %z0 = z0(1:end-1);
 NS = length(z0);
-[nt,nz,nin] = size(ys);
+[nt,nz,nin] = size(I);
 
 
 %nd = 8;  q=0.75;  tap =1;
@@ -48,10 +48,10 @@ w1 = 100;
 res_in = {};
 res_in_out = {};
 for i=1:nin
-    in1 = squeeze(ys(:,:,i));
-    res_in_out{i} = ordinary_TF(in1,zs,z0,times,cond);
+    in1 = squeeze(I(:,:,i));
+    res_in_out{i} = ordinary_TF(in1,O,z0,times,cond);
     for j=1:nin
-        in2 = squeeze(ys(:,:,j));
+        in2 = squeeze(I(:,:,j));
         res_in{i,j} = ordinary_TF(in1,in2,z0,times,cond);
     end
 end
@@ -83,7 +83,7 @@ end
 gyz = ifft(Gyz,[],1);
 gyz = ifft(gyz,[],2);
 
-z_s = zeros(size(zs),nin);
+z_s = zeros(length(t),nz,nin);
 
 for i=1:nin
     gyz_i = real(squeeze(gyz(:,:,i))); 
