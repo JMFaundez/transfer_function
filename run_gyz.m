@@ -56,6 +56,7 @@ out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
 
+iz = 50;
 [Z,T] = meshgrid(z,time);
 val=0.5e-3;
 cmap=parula;
@@ -74,11 +75,13 @@ ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
 ax2 =subplot(212);
+hold on
 pcolor(T,Z,out.est)
 shading interp
 clim([-val,val])
 colormap(ax1,cmap)
 colorbar()
+yline(Z(iz,1))
 %axis equal
 ylim([min(Z(:)),max(Z(:))])
 %xlim([0.02,0.5])
@@ -86,7 +89,6 @@ title('Prediction')
 ylabel('$z$','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 
-iz = 50;
 figure()
 hold on 
 plot(time,O(:,iz),'DisplayName','Sim')
