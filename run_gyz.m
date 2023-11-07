@@ -20,11 +20,16 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=0.05;
+x0=[0.05, 0.15];
 xf=0.25;
-t0 = 0.6;
-ix0 = find(Xd(:,1)>=x0,1,"first");
+
+ix0 = x0*0;
+for i=1:length(ix0)
+ix0(i) = find(Xd(:,1)>=x0(i),1,"first");
+end
 ixf = find(Xd(:,1)>=xf,1,"first");
+
+t0 = 0.6;
 it0 = find(time_diego>=t0,1,"first");
 time = time_diego(it0:end);
 nnt = floor(length(time)/cond.nd) * cond.nd;
@@ -34,14 +39,20 @@ time = time(dift+1:end);
 
 cf = (LD.Q(Np/3+1:2*Np/3,:));
 cf = reshape(cf,Ns,Nz,Nt);
-I = squeeze(cf(ix0,1:end-1,it0:end))';
 O = squeeze(cf(ixf,1:end-1,it0:end))';
+
+[n1,n2] = size(O);
+I = zeros(n1.n2,length(ix0));
+for i=1:length(ix0)
+    Ii = squeeze(cf(ix0(i),1:end-1,it0:end))';
+    I(:,:,i) = Ii;
+end
 
 z = gridDiego.Z(1:end-1);
 
 tic
-out = gyz_1row(I,O,cond,time,z);
-%out = gyz_nrows(I,O,cond,time,z);
+%out = gyz_1row(I,O,cond,time,z);
+out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
 
