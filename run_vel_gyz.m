@@ -53,7 +53,7 @@ tic
 out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
-disp("Error="+num2str(out.error))
+%disp("Error="+num2str(out.error))
 
 iz = 50;
 [Z,T] = meshgrid(z,time);
