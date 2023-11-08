@@ -22,6 +22,11 @@ for i=1:ndq
     size(Pn1{i});
 end
 
+
+ndq = fix(ndq);
+%N = 2^nextpow2(N);
+Y = zeros(ndq,N,NZ);
+
 if tap
     tapF = repmat(hanning(N),[1 NZ]);
     tapCoef = sqrt(8/3);
@@ -29,10 +34,6 @@ else
     tapF = repmat(ones(N,1),[1 NZ]);
     tapCoef = 1;
 end
-
-ndq = fix(ndq);
-%N = 2^nextpow2(N);
-Y = zeros(ndq,N,NZ);
 
 %FFT in time
 for i=1:ndq

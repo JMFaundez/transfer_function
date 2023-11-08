@@ -21,6 +21,8 @@ Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 [Y, ft] = fft_time_z(Yz,time,nd,q,tap);
 
 [ndq,N,nz] = size(X);
+nd
+ndq
 Sxx = zeros(nd,N,nz);
 Syy = zeros(nd,N,nz);
 Sxy = zeros(nd,N,nz);
