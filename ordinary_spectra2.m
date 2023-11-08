@@ -20,7 +20,7 @@ Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 N = 2^nextpow2(nt/nd);
 
 test = cpsd(Xz(:,1),Xz(:,1),fix(nt/nd),fix(q*nt/nd));
-[N,~] = size(test);
+[N,~] = size(test)
 
 Sxx = zeros(N,nz);
 Syy = zeros(N,nz);
