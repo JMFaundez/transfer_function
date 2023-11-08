@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=[0.05,0.1];
+x0=[0.1];
 xf=0.15;
 
 ix0 = x0*0;
@@ -51,8 +51,8 @@ end
 z = gridDiego.Z(1:end-1);
 
 tic
-%out = gyz_1row(I,O,cond,time,z);
-out = gyz_nrows(I,O,cond,time,z);
+out = gyz_1row(I,O,cond,time,z);
+%out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
 
