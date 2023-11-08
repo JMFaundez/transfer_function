@@ -37,7 +37,7 @@ Gyz = zeros(ntf,nz,nin);
 A = zeros(ntf,nz,nin,nin);
 b = zeros(ntf,nz,nin);
 
-Sx = step_2(ft*2*pi,400,600,1e12,1e4);
+Sx = step_2(ft*2*pi,100,200,1e12,1e4);
 Sx = ifftshift(Sx);
 R2 = min(Sx);
 SxM = repmat(Sx',[1 NS]);
