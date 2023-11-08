@@ -18,13 +18,13 @@ SIO = {};
 for i=1:nin
     in1 = squeeze(I(:,:,i));
     %res_in_out{i} = ordinary_TF(in1,O,z0,t,cond);
-    %[~,SOO,SIO{i},ft,fz,~] = ordinary_spectra(in1,O,t,z0,nd,q,tap);
-    [~,SOO,SIO{i},ft,fz] = ordinary_spectra2(in1,O,t,z0,nd,q);
+    [~,SOO,SIO{i},ft,fz,~] = ordinary_spectra(in1,O,t,z0,nd,q,tap);
+    %[~,SOO,SIO{i},ft,fz] = ordinary_spectra2(in1,O,t,z0,nd,q);
     for j=1:nin
         in2 = squeeze(I(:,:,j));
         %res_in{i,j} = ordinary_TF(in1,in2,z0,t,cond);
-        %[~,~,SII{i,j},ft,fz,~] = ordinary_spectra(in1,in2,t,z0,nd,q,tap);
-        [~,~,SII{i,j},ft,fz] = ordinary_spectra2(in1,in2,t,z0,nd,q);
+        [~,~,SII{i,j},ft,fz,~] = ordinary_spectra(in1,in2,t,z0,nd,q,tap);
+        %[~,~,SII{i,j},ft,fz] = ordinary_spectra2(in1,in2,t,z0,nd,q);
     end
 end
 
