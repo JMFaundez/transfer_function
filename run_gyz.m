@@ -2,7 +2,7 @@ clear all
 
 % Welch parameters
 cond.q = 0.75; %overlap
-cond.nd = 4;  % Number of bins 
+cond.nd = 8;  % Number of bins 
 cond.tap = 1; % Use hanning window or not
 
 
