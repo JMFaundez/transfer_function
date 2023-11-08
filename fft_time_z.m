@@ -9,6 +9,9 @@ else
 end
 
 [NT,NZ] = size(signal);
+%exp1 = nextpow2(NT)-1;
+%NT1 = 2^exp1;
+%signal = signal_in(1:NT1,:);
 N = NT/nd;
 
 qm = 1-q;
@@ -28,11 +31,12 @@ else
 end
 
 ndq = fix(ndq);
+N = 2^nextpow2(N);
 Y = zeros(ndq,N,NZ);
 
 %FFT in time
 for i=1:ndq
-    Y(i,:,:) = tapCoef*fft(Pn1{i}.*tapF,[],1);
+    Y(i,:,:) = tapCoef*fft(Pn1{i}.*tapF,N,1);
 end
 
 [ft,ftp] = freq_fft(N,time(N)-time(1));

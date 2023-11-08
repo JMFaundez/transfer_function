@@ -59,11 +59,11 @@ Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 [X, ft] = fft_time_z(Xz,time,nd,q,tap);
 [Y, ft] = fft_time_z(Yz,time,nd,q,tap);
 
-[nd,N,nz] = size(X);
+[ndq,N,nz] = size(X);
 Sxx = zeros(nd,N,nz);
 Syy = zeros(nd,N,nz);
 Sxy = zeros(nd,N,nz);
-for i=1:nd
+for i=1:ndq
 	Sxx(i,:,:) = squeeze(conj(X(i,:,:))).*squeeze(X(i,:,:));
 	Syy(i,:,:) = squeeze(conj(Y(i,:,:))).*squeeze(Y(i,:,:));
 	Sxy(i,:,:) = squeeze(conj(X(i,:,:))).*squeeze(Y(i,:,:));
