@@ -20,17 +20,21 @@ Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 N = 2^nextpow2(nt/nd);
 
 test = cpsd(Xz(:,1),Xz(:,1),fix(nt/nd),fix(q*nt/nd));
-[N,~] = size(test)
+[N,~] = size(test);
 
-Sxx = zeros(N,nz);
-Syy = zeros(N,nz);
-Sxy = zeros(N,nz);
+Sxx = cpsd(Xz,Xz,fix(nt/nd),fix(q*nt/nd));
+Syy = cpsd(Yz,Yz,fix(nt/nd),fix(q*nt/nd));
+Sxy = cpsd(Xz,Yz,fix(nt/nd),fix(q*nt/nd));
+[N,~] = size(Sxx)
+%Sxx = zeros(N,nz);
+%Syy = zeros(N,nz);
+%Sxy = zeros(N,nz);
 
-for i=1:nz 
-	Sxx(:,i) = cpsd(Xz(:,i),Xz(:,i),fix(nt/nd),fix(q*nt/nd));
-	Syy(:,i) = cpsd(Yz(:,i),Yz(:,i),fix(nt/nd),fix(q*nt/nd));
-	Sxy(:,i) = cpsd(Xz(:,i),Yz(:,i),fix(nt/nd),fix(q*nt/nd));
-end
+%for i=1:nz 
+%	Sxx(:,i) = cpsd(Xz(:,i),Xz(:,i),fix(nt/nd),fix(q*nt/nd));
+%	Syy(:,i) = cpsd(Yz(:,i),Yz(:,i),fix(nt/nd),fix(q*nt/nd));
+%	Sxy(:,i) = cpsd(Xz(:,i),Yz(:,i),fix(nt/nd),fix(q*nt/nd));
+%end
 
 
 [ft,ftp] = freq_fft(N,time(N)-time(1));
