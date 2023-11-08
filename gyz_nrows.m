@@ -56,10 +56,15 @@ for i=1:ntf
         Ai = squeeze(A(i,j,:,:));
         bi = squeeze(b(i,j,:));
         Gyz_ij = Ai\bi;
-        Gyz(i,j,:) = Gyz_ij.*SxM_inv;
+        Gyz(i,j,:) = Gyz_ij;
 
     end
 end
+
+for i=1:nin
+    Gyz(:,:,i) = Gyz(:,:,i).*SxM_inv;
+end
+
 %size(Ai)
 %size(bi)
 
