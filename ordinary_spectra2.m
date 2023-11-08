@@ -17,10 +17,10 @@ Yz = fft(yn,[],2);
 Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 [fz,fzp] = freq_fft(nz,Lz);
 
-N = 2^nextpow2(nt/nd);
+%N = 2^nextpow2(nt/nd);
 
-test = cpsd(Xz(:,1),Xz(:,1),fix(nt/nd),fix(q*nt/nd));
-[N,~] = size(test);
+%test = cpsd(Xz(:,1),Xz(:,1),fix(nt/nd),fix(q*nt/nd));
+%[N,~] = size(test);
 
 Sxx = cpsd(Xz,Xz,fix(nt/nd),fix(q*nt/nd));
 Syy = cpsd(Yz,Yz,fix(nt/nd),fix(q*nt/nd));
