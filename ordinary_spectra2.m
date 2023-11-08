@@ -17,7 +17,7 @@ Yz = fft(yn,[],2);
 Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 [fz,fzp] = freq_fft(nz,Lz);
 
-N = nextpow2(nt/nd);
+N = 2^nextpow2(nt/nd);
 
 Sxx = zeros(N,nz);
 Syy = zeros(N,nz);
