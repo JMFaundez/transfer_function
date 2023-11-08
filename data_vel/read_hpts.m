@@ -59,7 +59,7 @@ for t=1:nt
 	t
 for i=1:nprobes
 	%index = (t-1)*nplane*nx+nplane*(i-1)+1:(t-1)*nplane*nx+nplane*i;
-	index = (t-1)*nz*nprobes+nprobes*(i-1)+1:(t-1)*nz*nprobes+nprobes*i;
+	index = (t-1)*nz*nprobes+nz*(i-1)+1:(t-1)*nz*nprobes+nz*i;
 	if t==1
 		inn=[index(1),index(end),index(end)-index(1)];
 	end
