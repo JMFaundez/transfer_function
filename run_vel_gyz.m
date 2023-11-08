@@ -18,8 +18,8 @@ time = LD.time;
 
 
 
-ix0 = [3];
-ixf = [13];
+ix0 = [1];
+ixf = [5];
 
 t0 = 0.6;
 it0 = find(time>=t0,1,"first");
