@@ -45,7 +45,7 @@ end
 for i=1:ntf
     for j=1:nz
         Ai = squeeze(A(i,j,:,:));
-        bi = squeeze(b(i,j,:));
+        bi = transpose(squeeze(b(i,j,:)));
         Gyz(i,j,:) = Ai\bi;
     end
 end
