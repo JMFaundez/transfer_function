@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=[0.05,0.1];
+x0=[0.1];
 xf=0.15;
 
 ix0 = x0*0;
@@ -55,6 +55,9 @@ tic
 out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
+
+figure()
+plot(out.error)
 
 iz = 50;
 [Z,T] = meshgrid(z,time);
