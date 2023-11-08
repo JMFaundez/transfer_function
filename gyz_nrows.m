@@ -91,7 +91,7 @@ for i=1:nin
     z_s(:,:,i) = conv_jose(in1,gyz_i,NS,length(t));
 end
 estimation = squeeze(sum(z_s,3));
-error = rms(estimation-O,1)./rms(O,1);
+error = rms(estimation-O,1);
 
 out.gyz = real(gyz);
 out.z_s = z_s;

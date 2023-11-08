@@ -43,6 +43,13 @@ for i=1:length(ix0)
         Iii = squeeze(LD.u2(it0:end,ix0(i),:));
         I(:,:,(i-1)*nvel+1) = Ii;
         I(:,:,(i-1)*nvel+2) = Iii;
+    elseif nvel==3 
+        Ii = squeeze(LD.u1(it0:end,ix0(i),:));
+        Iii = squeeze(LD.u2(it0:end,ix0(i),:));
+        Iiii = squeeze(LD.u3(it0:end,ix0(i),:));
+        I(:,:,(i-1)*nvel+1) = Ii;
+        I(:,:,(i-1)*nvel+2) = Iii;
+        I(:,:,(i-1)*nvel+3) = Iiii;
     end
 end
 
