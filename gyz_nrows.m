@@ -91,115 +91,14 @@ for i=1:nin
     z_s(:,:,i) = conv_jose(in1,gyz_i,NS,length(t));
 end
 
+error = mse(z_s-O)/mse(O);
+
 out.gyz = real(gyz);
 out.z_s = z_s;
 out.est = squeeze(sum(z_s,3));
 out.ft = res_in_out{1}.ft;
 out.fz = res_in_out{1}.fz;
 out.coherence = res_in_out{1}.coh;
-
-
-
-%%
-
-%Sy1y1 = res3.Syy;
-%Sy2y2 = res3.Szz;
-%Sy1y2 = res3.Syz;
-%Sy2y1 = res4.Syz;
-%
-%Sy1z = res1.Syz;
-%Sy2z = res2.Syz;
-%
-%% Gyz =  | Gyz_1   Gyz_2 |
-%Sx = step_2(res1.ft*2*pi,w1,200,1e12,1e4);
-%Sx = ifftshift(Sx);
-%R2 = min(Sx);
-%SxM = repmat(Sx',[1 20]);
-%SxM = SxM/R2;
-%SxM_inv = 1./SxM;
-%
-%
-%
-%%Gyz_1 = (Sy1z./Sy1y1 + Sy2z./Sy1y2).*SxM_inv;
-%%Gyz_2 = (Sy1z./Sy2y1 + Sy2z./Sy2y2).*SxM_inv;
-%
-%Gyz_s1 = Sy1z./Sy1y1.*SxM_inv;
-%Gyz_s2 = Sy2z./Sy2y2.*SxM_inv;
-%
-%
-%gyz_s1 = ifft(Gyz_s1,[],1);
-%gyz_s1 = ifft(gyz_s1,[],2);
-%
-%gyz_s2 = ifft(Gyz_s2,[],1);
-%gyz_s2 = ifft(gyz_s2,[],2);
-%
-%det = Sy1y1.*Sy2y2 - Sy1y2.*Sy2y1;
-%Gyz_1 = (Sy2y2.*Sy1z - Sy1y2.*Sy2z)./det.*SxM_inv; 
-%Gyz_2 = (-Sy2y1.*Sy1z + Sy1y1.*Sy2z)./det.*SxM_inv; 
-%
-%
-%gyz_1 = ifft(Gyz_1,[],1);
-%gyz_1 = ifft(gyz_1,[],2);
-%
-%gyz_2 = ifft(Gyz_2,[],1);
-%gyz_2 = ifft(gyz_2,[],2);
-%
-%
-%z1 = conv_jose(ys1,real(gyz_1),NS,length(times));
-%z2 = conv_jose(ys2,real(gyz_2),NS,length(times));
-%
-%zest = z1+z2;
-%
-%
-%z_s1 = conv_jose(ys1,real(gyz_s1),NS,length(times));
-%z_s2 = conv_jose(ys2,real(gyz_s2),NS,length(times));
-%
-%%%
-%
-%
-%% zi = 11;
-%% figure('Position',[500 500 1200 900])
-%% 
-%% subplot(311)
-%% hold on
-%% plot(times, z_s1(:,zi),'g','DisplayName','$z_{y_1}$')
-%% plot(times, zs(:,zi),'k','DisplayName','$z_{meas}$')
-%% box on
-%% legend('Interpreter','latex','FontSize',18)
-%% xlabel('time','FontSize',18,'Interpreter','latex')
-%% ylabel('$z$','FontSize',18,'Interpreter','latex')
-%% xlim([0,max(times)])
-%% 
-%% subplot(312)
-%% hold on
-%% plot(times, z_s2(:,zi),'b','DisplayName','$z_{y_2}$')
-%% plot(times, zs(:,zi),'k','DisplayName','$z_{meas}$')
-%% box on
-%% legend('Interpreter','latex','FontSize',18)
-%% xlabel('time','FontSize',18,'Interpreter','latex')
-%% ylabel('$z$','FontSize',18,'Interpreter','latex')
-%% xlim([0,max(times)])
-%% 
-%% subplot(313)
-%% hold on
-%% plot(times, zest(:,zi),'r','DisplayName','$z_{y_1+y_2}$')
-%% plot(times, zs(:,zi),'k','DisplayName','$z_{meas}$')
-%% box on
-%% legend('Interpreter','latex','FontSize',18)
-%% xlabel('time','FontSize',18,'Interpreter','latex')
-%% ylabel('$z$','FontSize',18,'Interpreter','latex')
-%% xlim([0,max(times)])
-%
-%
-%
-%error1 = mse(z_s1-zs)/mse(zs);
-%error2 = mse(z_s2-zs)/mse(zs);
-%error12 = mse(zest-zs)/mse(zs);
-%
-%out.error = [error1,error2,error12];
-%out.gyz_1 = gyz_1;
-%out.gyz_2 = gyz_2;
-%out.est = zest;
-%
+out.error = error;
 
 end

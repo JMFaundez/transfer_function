@@ -43,7 +43,6 @@ for i=1:length(ix0)
         Iii = squeeze(LD.u2(it0:end,ix0(i),:));
         I(:,:,(i-1)*nvel+1) = Ii;
         I(:,:,(i-1)*nvel+2) = Iii;
-
     end
 end
 
@@ -54,6 +53,7 @@ tic
 out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
+disp("Error="+num2str(out.error))
 
 iz = 50;
 [Z,T] = meshgrid(z,time);
@@ -92,9 +92,9 @@ figure()
 hold on 
 plot(time,O(:,iz),'DisplayName','Sim')
 plot(time,out.est(:,iz),'DisplayName','Prediction')
-for i=1:length(ix0)
-    plot(time,out.z_s(:,iz,i),'DisplayName',"$x_{"+num2str(i)+"}$")
-end
+%for i=1:length(ix0)
+%    plot(time,out.z_s(:,iz,i),'DisplayName',"$x_{"+num2str(i)+"}$")
+%end
 ylabel('output','FontSize',18,'Interpreter','Latex')
 xlabel('time','FontSize',18,'Interpreter','Latex')
 legend('Location','best','Interpreter','latex')
