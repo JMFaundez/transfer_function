@@ -41,6 +41,7 @@ error = mse(z_s-O)/mse(O);
 
 out.error = error;
 out.est = z_s;
+out.z_s = z_s;
 out.gyz = gyz;
 out.Gyz = Gyz;
 out.coherence = res1.coh;
