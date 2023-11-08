@@ -42,6 +42,7 @@ nprobes=NLE+NBL;
 fields = A(3*npoints+2:end);
 clear A
 time = fields(1:(n_fields+1):end);
+time = time(1:npoints:end);
 vx = fields(2:(n_fields+1):end);
 vy = fields(3:(n_fields+1):end);
 vz = fields(4:(n_fields+1):end);
@@ -102,7 +103,7 @@ end
 
 %%
 
-save(filename,'u1','u2','u3','p','xx','yy','zz','-v7.3')
+save(filename,'u1','u2','u3','p','xx','yy','zz','time','-v7.3')
 disp('files SHOULD be saved...')
 disp('================== END PROGRAM ======================')
 
