@@ -6,58 +6,28 @@ function out = gyz_nrows(I,O,cond,t,z0)
 NS = length(z0);
 [nt,nz,nin] = size(I);
 
-
-%nd = 8;  q=0.75;  tap =1;
-%c1 = 1e-4;
-%tresh = 0.1e-3;
+nd = cond.nd;
+q = cond.q;
+tap = cond.tap;
 w1 = 100;
-%noise_opt = 2; %1: my old version, 2: With weigths, Jose step function. 3:With weigths, Diego step function.
-%liney1 = 2; % x=0.025,0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2
-%liney2 = 3;
-%linez = 6;
-%% Load uncontrolled data
-
-% Ls = load('timesignals_unc.mat');
-% A = Ls.A;
-% tsensor = Ls.t;
-% B = load('ref_val.mat').Bref;
-% yunc1 = A(1:end,NS*(liney1-1)+1:NS*liney1)-B(1,NS*(liney1-1)+1:NS*liney1);%A(1,NS*(liney-1)+1:NS*liney);
-% yunc2 = A(1:end,NS*(liney2-1)+1:NS*liney2)-B(1,NS*(liney2-1)+1:NS*liney2);
-% zunc = A(1:end,NS*(linez-1)+1:NS*linez)-B(1,NS*(linez-1)+1:NS*linez);%A(1,NS*(linez-1)+1:NS*linez);
-% 
-% %%
-% % downsampling and choose a nice N
-% iin = 3;
-% step = 100;
-% ys1 = yunc1(iin:step:end,:); ys2 = yunc2(iin:step:end,:); 
-% zs = zunc(iin:step:end,:);
-% 
-% times = tsensor(iin:step:end);
-% 
-% cut = mod(length(times),nd);
-% ys1 = ys1(cut+1:end,:);
-% ys2 = ys2(cut+1:end,:);
-% zs = zs(cut+1:end,:);
-% times = times(cut+1:end);
-
-%cond.q = q; cond.nd = nd; cond.tap = tap;
-
 
 %% Compute Gyz
 
-res_in = {};
-res_in_out = {};
+SII = {};
+SIO = {};
 for i=1:nin
     in1 = squeeze(I(:,:,i));
-    res_in_out{i} = ordinary_TF(in1,O,z0,t,cond);
+    %res_in_out{i} = ordinary_TF(in1,O,z0,t,cond);
+    [~,SOO,SIO{i},ft,fz,~] = ordinary_spectra(in1,O,t,z0,nd,q,tap);
     for j=1:nin
         in2 = squeeze(I(:,:,j));
-        res_in{i,j} = ordinary_TF(in1,in2,z0,t,cond);
+        %res_in{i,j} = ordinary_TF(in1,in2,z0,t,cond);
+        [~,~,SII{i,j},ft,fz,~] = ordinary_spectra(in1,O,t,z0,nd,q,tap);
     end
 end
 
 
-[ntf,nz] = size(res_in{1,1}.Syy);
+[ntf,nz] = size(SII{1,1});
 
 %A = zeros(ntf,nz,nin,nin);
 
@@ -66,9 +36,9 @@ A = zeros(ntf,nz,nin,nin);
 b = zeros(ntf,nz,nin);
 
 for i=1:nin
-    b(:,:,i) = res_in_out{i}.Syz;
+    b(:,:,i) = SIO{i};
     for j=1:nin
-        A(:,:,i,j) = res_in{i,j}.Syz;
+        A(:,:,i,j) = SII{i,j};
     end
 end
 
@@ -92,13 +62,14 @@ for i=1:nin
 end
 estimation = squeeze(sum(z_s,3));
 error = rms(estimation-O,1);
+coherence1 = conj(SIO{1}.*SIO{1})./(SOO.*SII{1,1});
 
 out.gyz = real(gyz);
 out.z_s = z_s;
 out.est = estimation; 
-out.ft = res_in_out{1}.ft;
-out.fz = res_in_out{1}.fz;
-out.coherence = res_in_out{1}.coh;
+out.ft = ft;
+out.fz = fz;
+out.coherence = coherence1;
 out.error = error;
 
 end
