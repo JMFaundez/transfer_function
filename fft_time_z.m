@@ -31,12 +31,12 @@ else
 end
 
 ndq = fix(ndq);
-N = 2^nextpow2(N);
+%N = 2^nextpow2(N);
 Y = zeros(ndq,N,NZ);
 
 %FFT in time
 for i=1:ndq
-    Y(i,:,:) = tapCoef*fft(Pn1{i}.*tapF,N,1);
+    Y(i,:,:) = tapCoef*fft(Pn1{i}.*tapF,[],1);
 end
 
 [ft,ftp] = freq_fft(N,time(N)-time(1));
