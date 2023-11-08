@@ -51,8 +51,8 @@ end
 z = gridDiego.Z(1:end-1);
 
 tic
-out = gyz_1row(I,O,cond,time,z);
-%out = gyz_nrows(I,O,cond,time,z);
+%out = gyz_1row(I,O,cond,time,z);
+out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
 
