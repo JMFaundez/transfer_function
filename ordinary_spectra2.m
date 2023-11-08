@@ -24,9 +24,9 @@ Syy = zeros(N,nz);
 Sxy = zeros(N,nz);
 
 for i=1:nz 
-	Sxx = cpsd(Xz(:,i),Xz(:,i),fix(nt/nd),fix(q*N),N);
-	Syy = cpsd(Yz(:,i),Yz(:,i),fix(nt/nd),fix(q*N),N);
-	Sxy = cpsd(Xz(:,i),Yz(:,i),fix(nt/nd),fix(q*N),N);
+	Sxx(:,i) = cpsd(Xz(:,i),Xz(:,i),fix(nt/nd),fix(q*N),N);
+	Syy(:,i) = cpsd(Yz(:,i),Yz(:,i),fix(nt/nd),fix(q*N),N);
+	Sxy(:,i) = cpsd(Xz(:,i),Yz(:,i),fix(nt/nd),fix(q*N),N);
 end
 
 
