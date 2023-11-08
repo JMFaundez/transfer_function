@@ -62,7 +62,7 @@ for i=1:nin
 end
 estimation = squeeze(sum(z_s,3));
 error = rms(estimation-O,1);
-coherence1 = conj(SIO{1}.*SIO{1})./(SOO.*SII{1,1});
+coherence1 = conj(SIO{1}).*SIO{1}./(SOO.*SII{1,1});
 
 out.gyz = real(gyz);
 out.z_s = z_s;
