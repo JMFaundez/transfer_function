@@ -61,6 +61,8 @@ out = gyz_nrows(I,O,cond,time,z);
 toc
 %return
 %disp("Error="+num2str(out.error))
+figure()
+plot(out.error)
 
 iz = 50;
 [Z,T] = meshgrid(z,time);
