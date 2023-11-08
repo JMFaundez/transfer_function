@@ -5,7 +5,7 @@ iin = 1;
 iout = 13;
 
 uin = squeeze(L.u1(:,iin,:));
-zin = squeeze(L.z(iin,:));
+zin = squeeze(L.zz(iin,:));
 t = L.time;
 
 
