@@ -34,7 +34,7 @@ O = squeeze(LD.u1(it0:end,ixf,:));
 [n1,n2] = size(O);
 I = zeros(n1,n2,length(ix0));
 for i=1:length(ix0)
-    Ii = squeeze(LD.u2(it0:end,ix0(i),:));
+    Ii = squeeze(LD.u3(it0:end,ix0(i),:));
     I(:,:,i) = Ii;
 end
 
