@@ -21,11 +21,9 @@ Lz = z0(end) - z0(1) + (z0(2)-z0(1));
 [Y, ft] = fft_time_z(Yz,time,nd,q,tap);
 
 [ndq,N,nz] = size(X);
-nd
-ndq
-Sxx = zeros(nd,N,nz);
-Syy = zeros(nd,N,nz);
-Sxy = zeros(nd,N,nz);
+Sxx = zeros(ndq,N,nz);
+Syy = zeros(ndq,N,nz);
+Sxy = zeros(ndq,N,nz);
 for i=1:ndq
 	Sxx(i,:,:) = squeeze(conj(X(i,:,:))).*squeeze(X(i,:,:));
 	Syy(i,:,:) = squeeze(conj(Y(i,:,:))).*squeeze(Y(i,:,:));
