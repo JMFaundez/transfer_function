@@ -32,10 +32,19 @@ time = time(dift+1:end);
 O = squeeze(LD.u1(it0:end,ixf,:));
 
 [n1,n2] = size(O);
-I = zeros(n1,n2,length(ix0));
+nvel=2;
+I = zeros(n1,n2,length(ix0)*nvel);
 for i=1:length(ix0)
-    Ii = squeeze(LD.u3(it0:end,ix0(i),:));
-    I(:,:,i) = Ii;
+    if nvel==1
+        Ii = squeeze(LD.u1(it0:end,ix0(i),:));
+        I(:,:,i) = Ii;
+    elseif nvel==2 
+        Ii = squeeze(LD.u1(it0:end,ix0(i),:));
+        Iii = squeeze(LD.u2(it0:end,ix0(i),:));
+        I(:,:,(i-1)*nvel+1) = Ii;
+        I(:,:,(i-1)*nvel+2) = Iii;
+
+    end
 end
 
 z = LD.zz(ixf,:);
