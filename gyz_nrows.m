@@ -90,12 +90,12 @@ for i=1:nin
     in1 = squeeze(I(:,:,i));
     z_s(:,:,i) = conv_jose(in1,gyz_i,NS,length(t));
 end
-
-error = mse(z_s-O)/mse(O);
+estimation = squeeze(sum(z_s),3);
+error = mse(estimation-O)/mse(O);
 
 out.gyz = real(gyz);
 out.z_s = z_s;
-out.est = squeeze(sum(z_s,3));
+out.est = estimation; 
 out.ft = res_in_out{1}.ft;
 out.fz = res_in_out{1}.fz;
 out.coherence = res_in_out{1}.coh;
