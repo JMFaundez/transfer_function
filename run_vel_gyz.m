@@ -18,7 +18,7 @@ time = LD.time;
 
 
 
-ix0 = [14];
+ix0 = [13];
 ixf = [24];
 
 t0 = 0.6;
@@ -66,7 +66,7 @@ plot(out.error)
 
 iz = 50;
 [Z,T] = meshgrid(z,time);
-val=0.05;
+val=0.08;
 cmap=parula;
 figure('Position',[500 500 1000 400])
 ax1 =subplot(211);
