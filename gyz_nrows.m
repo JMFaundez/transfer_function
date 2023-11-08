@@ -37,6 +37,13 @@ Gyz = zeros(ntf,nz,nin);
 A = zeros(ntf,nz,nin,nin);
 b = zeros(ntf,nz,nin);
 
+Sx = step_2(ft*2*pi,400,600,1e12,1e4);
+Sx = ifftshift(Sx);
+R2 = min(Sx);
+SxM = repmat(Sx',[1 NS]);
+SxM = SxM/R2;
+SxM_inv = 1./SxM;
+
 for i=1:nin
     b(:,:,i) = SIO{i};
     for j=1:nin
@@ -48,7 +55,9 @@ for i=1:ntf
     for j=1:nz
         Ai = squeeze(A(i,j,:,:));
         bi = squeeze(b(i,j,:));
-        Gyz(i,j,:) = Ai\bi;
+        Gyz_ij = Ai\bi;
+        Gyz(i,j,:) = Gyz_ij.*SxM_inv;
+
     end
 end
 %size(Ai)
