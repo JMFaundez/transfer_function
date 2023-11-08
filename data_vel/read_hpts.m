@@ -63,10 +63,10 @@ for i=1:nprobes
 	if t==1
 		inn=[index(1),index(end),index(end)-index(1)];
 	end
-	u1(t,i,:) = reshape(vx(index),nz,ny)';	
-	u2(t,i,:) = reshape(vy(index),nz,ny)';	
-	u3(t,i,:) = reshape(vz(index),nz,ny)';
-  	p(t,i,:) = reshape(pr(index),nz,ny)';
+	u1(t,i,:) = reshape(vx(index),nz,1)';	
+	u2(t,i,:) = reshape(vy(index),nz,1)';	
+	u3(t,i,:) = reshape(vz(index),nz,1)';
+  	p(t,i,:) = reshape(pr(index),nz,1)';
 
 %	v1 = reshape(vx(index),nz,ny)';	
 %	v2 = reshape(vy(index),nz,ny)';	
@@ -86,9 +86,9 @@ end
 
 for i=1:nprobes
 	index = nz*(i-1)+1:nz*i;
-	xx(i,:) = reshape(xyz(index,1),nz,ny)';	
-	yy(i,:) = reshape(xyz(index,2),nz,ny)';	
-	zz(i,:) = reshape(xyz(index,3),nz,ny)';	
+	xx(i,:) = reshape(xyz(index,1),nz,1)';	
+	yy(i,:) = reshape(xyz(index,2),nz,1)';	
+	zz(i,:) = reshape(xyz(index,3),nz,1)';	
 %	save(filename+num2str(i)+"_mesh",'xx','yy','zz')
 %	for it=1:nt
 %	v1 = squeeze(u1(it,i,:,:));
