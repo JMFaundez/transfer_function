@@ -11,6 +11,7 @@ yn = ydata;%-avgy;
 
 NT = length(time);
 
+% fft along span
 Xz = fft(xn,[],2);
 Yz = fft(yn,[],2);
 
