@@ -48,7 +48,7 @@ toc
 
 iz = 50;
 [Z,T] = meshgrid(z,time);
-val=0.5e-3;
+val=0.05;
 cmap=parula;
 figure('Position',[500 500 1000 400])
 ax1 =subplot(211);
