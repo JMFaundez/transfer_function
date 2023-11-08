@@ -12,7 +12,7 @@ tic
 LD = load("data_vel/Linear_vel.mat");
 toc
 
-[Ns,Nz] = size(Xd);
+%[Ns,Nz] = size(Xd);
 time = LD.time;
 [Nt,Nprobes,nz] = size(LD.u1);
 
