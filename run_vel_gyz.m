@@ -32,7 +32,7 @@ time = time(dift+1:end);
 O = squeeze(LD.u1(it0:end,ixf,:));
 
 [n1,n2] = size(O);
-nvel=3;
+nvel=2;
 I = zeros(n1,n2,length(ix0)*nvel);
 for i=1:length(ix0)
     if nvel==1
