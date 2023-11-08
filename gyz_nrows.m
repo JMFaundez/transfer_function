@@ -51,8 +51,8 @@ for i=1:ntf
         Gyz(i,j,:) = Ai\bi;
     end
 end
-size(Ai)
-size(bi)
+%size(Ai)
+%size(bi)
 
 gyz = ifft(Gyz,[],1);
 gyz = ifft(gyz,[],2);
