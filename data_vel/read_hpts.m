@@ -56,7 +56,6 @@ p = zeros(nt,nprobes,nz);
 %xx = zeros(nx,ny,nz); yy = zeros(nx,ny,nz); zz = zeros(nx,ny,nz);
 %p = zeros(nt,nx,ny,nz);
 for t=1:nt
-	t
 for i=1:nprobes
 	%index = (t-1)*nplane*nx+nplane*(i-1)+1:(t-1)*nplane*nx+nplane*i;
 	index = (t-1)*nz*nprobes+nz*(i-1)+1:(t-1)*nz*nprobes+nz*i;
@@ -103,7 +102,7 @@ end
 
 %%
 
-save(filename,'u1','v2','u3','p','xx','yy','zz','-v7.3')
+save(filename,'u1','u2','u3','p','xx','yy','zz','-v7.3')
 disp('files SHOULD be saved...')
 disp('================== END PROGRAM ======================')
 
