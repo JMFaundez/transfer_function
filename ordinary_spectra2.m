@@ -1,4 +1,4 @@
-function [Sxx,Syy,Sxy,ft,fz]= ordinary_spectra2(xdata,ydata,time,z0,nd,q,tap)
+function [Sxx,Syy,Sxy,ft,fz]= ordinary_spectra2(xdata,ydata,time,z0,nd,q)
 
 %NS = 31; %number of sensors in one row
 nz = length(z0);
