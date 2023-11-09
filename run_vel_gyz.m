@@ -36,7 +36,7 @@ nvel=1;
 I = zeros(n1,n2,length(ix0)*nvel);
 for i=1:length(ix0)
     if nvel==1
-        Ii = squeeze(LD.u1(it0:end,ix0(i),:));
+        Ii = squeeze(LD.u2(it0:end,ix0(i),:));
         I(:,:,i) = Ii;
     elseif nvel==2 
         Ii = squeeze(LD.u1(it0:end,ix0(i),:));
