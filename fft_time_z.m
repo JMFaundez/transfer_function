@@ -39,7 +39,7 @@ end
 %FFT in time
 for i=1:ndq
     %func = Pn1{i};
-    func = [Pn1{i};zeros(N,nz)];
+    func = [Pn1{i};zeros(N,NZ)];
     Y(i,:,:) = tapCoef*fft(func.*tapF,[],1);
 end
 
