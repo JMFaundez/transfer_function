@@ -61,9 +61,9 @@ for i=1:ntf
     end
 end
 
-for i=1:nin
-    Gyz(:,:,i) = Gyz(:,:,i).*SxM_inv;
-end
+%for i=1:nin
+%    Gyz(:,:,i) = Gyz(:,:,i).*SxM_inv;
+%end
 
 %size(Ai)
 %size(bi)
