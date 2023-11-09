@@ -19,7 +19,7 @@ time = LD.time;
 
 
 ix0 = [8];
-ixf = [13];
+ixf = [14];
 
 t0 = 0.6;
 it0 = find(time>=t0,1,"first");
