@@ -20,7 +20,7 @@ time_diego = LD.t;
 [Np,Nt] = size(LD.Q);
 
 
-x0=[0.05,0.075,0.1];
+x0=[0.1];
 xf=0.15;
 
 ix0 = x0*0;
