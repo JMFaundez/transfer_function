@@ -63,7 +63,7 @@ toc
 %disp("Error="+num2str(out.error))
 figure()
 hold on
-plot(unique(LD.xx),unique(LD.yy),'ko')
+plot(LD.xx(:,1),LD.yy(:,1),'ko')
 plot(LD.xx(ix0,1),LD.yy(ix0,1),'bx')
 plot(LD.xx(ixf,1),LD.yy(ixf,1),'r^')
 axis equal
