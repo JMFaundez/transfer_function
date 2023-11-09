@@ -25,6 +25,7 @@ end
 
 ndq = fix(ndq);
 %N = 2^nextpow2(N);
+N = 2*N;
 Y = zeros(ndq,N,NZ);
 
 if tap
