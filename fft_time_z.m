@@ -38,7 +38,9 @@ end
 
 %FFT in time
 for i=1:ndq
-    Y(i,:,:) = tapCoef*fft(Pn1{i}.*tapF,[],1);
+    %func = Pn1{i};
+    func = [Pn1{i};zeros(N,nz)];
+    Y(i,:,:) = tapCoef*fft(func.*tapF,[],1);
 end
 
 [ft,ftp] = freq_fft(N,time(N)-time(1));
