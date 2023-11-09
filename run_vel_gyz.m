@@ -18,8 +18,8 @@ time = LD.time;
 
 
 
-ix0 = [1];
-ixf = [5];
+ix0 = [8];
+ixf = [13];
 
 t0 = 0.6;
 it0 = find(time>=t0,1,"first");
@@ -32,7 +32,7 @@ time = time(dift+1:end);
 O = squeeze(LD.u1(it0:end,ixf,:));
 
 [n1,n2] = size(O);
-nvel=3;
+nvel=1;
 I = zeros(n1,n2,length(ix0)*nvel);
 for i=1:length(ix0)
     if nvel==1
